@@ -6,12 +6,12 @@
 }
 
 *::selection {
-    color: red;
-    background-color: yellow;
+    color: var(--selecting-color);
+    background-color: var(--selectiong-background-color);
 }
 
 html {
-    background: linear-gradient(135deg, var(--pink), white);
+    background: linear-gradient(135deg, var(--first-color), var(--second-color));
     overflow: hidden;
 }
 
@@ -31,7 +31,14 @@ body {
 
 
 :root {
-    --pink: #ebb2e6;
+    --first-color: #ebb2e6;
+    --second-color: #86aae3;
+    --third-color: #5c8ddb;
+    --fourth-color: #4a4ddc;
+    --selecting-color: #ffffff;
+    --selectiong-background-color: #000000;
+    --text-color: #000000;
+    --text-color2: #ffffff;
 }
 
 
@@ -53,7 +60,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--pink);
+    background-color: var(--first-color);
 
 }
 
@@ -81,11 +88,11 @@ body {
 
 @keyframes nav-div {
     from {
-        background-color: var(--pink);
+        background-color: var(--first-color);
     }
 
     to {
-        background-color: white;
+        background-color: var(--second-color);
     }
 
 }
@@ -95,11 +102,11 @@ body {
 @keyframes nav-a {
 
     from {
-        color: white;
+        color: var(--second-color);
     }
 
     to {
-        color: var(--pink);
+        color: var(--first-color);
     }
 
 }
@@ -118,7 +125,7 @@ body {
 
 .nav a {
     text-decoration: none;
-    color: white;
+    color: var(--second-color);
     font-size: large;
     font-family: sans-serif;
 }
@@ -182,7 +189,7 @@ section>section {
 @keyframes welcome {
 
     from {
-        color: white;
+        color: var(--second-color);
         font-size: 0px;
     }
 
@@ -196,7 +203,7 @@ section>section {
 @keyframes welcome2 {
 
     from {
-        color: white;
+        color: var(--second-color);
         font-size: 0px;
     }
 
@@ -285,7 +292,7 @@ section>section {
     height: 20%;
     overflow: hidden;
     margin: 10px;
-    background: linear-gradient(135deg, white 0%, white 5%, #ebb2e6 5%, #ebb2e6 95%, white 95%, white 100%);
+    background: linear-gradient(135deg, var(--second-color) 0%, var(--second-color) 5%, #ebb2e6 5%, #ebb2e6 95%, var(--second-color) 95%, var(--second-color) 100%);
     border-radius: 10px;
     padding: 20px;
     font-family: sans-serif;
@@ -324,7 +331,7 @@ section>section {
     justify-content: center;
     align-items: center;
     background: transparent;
-    color: white;
+    color: var(--second-color);
     top: 0;
     left: 0;
     width: 100%;
@@ -340,7 +347,7 @@ section>section {
 .projects-container button {
     border: none;
     background: none;
-    color: white;
+    color: var(--second-color);
     font-family: sans-serif;
     font-weight: bold;
     font-size: 1rem;
@@ -349,7 +356,7 @@ section>section {
 }
 
 .projects-container button:hover {
-        background: white;
+        background: var(--second-color);
         color: #86aae3;
 }
 
