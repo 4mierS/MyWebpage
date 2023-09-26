@@ -1,0 +1,368 @@
+* {
+    margin: 80;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+*::selection {
+    color: red;
+    background-color: yellow;
+}
+
+html {
+    background: linear-gradient(135deg, var(--pink), white);
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    height: 100vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+:root {
+    --pink: #ebb2e6;
+}
+
+
+
+#navbar {
+    width: 99%;
+    height: 50px;
+    top: 10px;
+
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    animation: float 4s ease-out 0s backwards
+}
+
+.nav div {
+    height: 100%;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pink);
+
+}
+
+
+
+@keyframes float {
+
+    0% {
+        transform: translatey(80px);
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 2s, opacity 2s linear;
+    }
+
+    100% {
+        transform: translatey(0px);
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 2s linear;
+    }
+
+}
+
+
+
+@keyframes nav-div {
+    from {
+        background-color: var(--pink);
+    }
+
+    to {
+        background-color: white;
+    }
+
+}
+
+
+
+@keyframes nav-a {
+
+    from {
+        color: white;
+    }
+
+    to {
+        color: var(--pink);
+    }
+
+}
+
+
+
+.nav div:hover {
+    animation: nav-div 2s forwards;
+}
+
+
+
+.nav div:hover a {
+    animation: nav-a 0.5s forwards;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-family: sans-serif;
+}
+
+.img-logo {
+    width: auto;
+    height: 100%;
+}
+
+
+
+section[class] {
+    font-size: 1rem;
+    display: flex;
+    overflow: auto;
+    flex: none;
+}
+
+.y {
+    width: 100%;
+    min-width: 12rem;
+    height: 100vh;
+    flex-flow: column nowrap;
+}
+
+
+
+section>section {
+    flex: none;
+}
+
+
+
+
+
+.y>section {
+    width: 100%;
+    height: 90%;
+}
+
+.y.mandatory-scroll-snapping {
+    scroll-snap-type: y mandatory;
+}
+
+
+section>section {
+
+    scroll-snap-align: center;
+
+}
+
+
+.always-stop>section {
+    scroll-snap-stop: always;
+    scroll-snap-stop: always;
+}
+
+
+
+
+@keyframes welcome {
+
+    from {
+        color: white;
+        font-size: 0px;
+    }
+
+    to {
+        color: #86aae3;
+        font-size: 24px;
+    }
+
+}
+
+@keyframes welcome2 {
+
+    from {
+        color: white;
+        font-size: 0px;
+    }
+
+    to {
+        color: #5c8ddb;
+        font-size: 26px;
+    }
+
+}
+
+#welcome-section .fh {
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+    font-family: system-ui;
+    color: #86aae3;
+    animation: welcome 2s ease-out 2s backwards;
+    margin: 0;
+}
+
+#welcome-section .name {
+    position: relative;
+    text-align: center;
+    font-size: 26px;
+    font-family: system-ui;
+    color: #5c8ddb;
+    line-height: 50px;
+    animation: welcome2 2s ease-out 0s backwards;
+    margin: 0;
+}
+
+#welcome-section div:hover :last-child {
+    cursor: default;
+    font-size: 26px;
+    color: #5c8ddb;
+}
+
+#welcome-section div:hover :first-child {
+    cursor: default;
+    font-size: 30px;
+    color: rgb(74, 77, 220);
+}
+
+#welcome-section {
+    width: auto;
+    height: 100vh;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#welcome-section:focus-visible {
+    cursor: default;
+    background-color: green;
+}
+
+#projects {
+    width: auto;
+    height: 100vh;
+    padding-top: 50px;
+    position: relative;
+}
+
+#projects h2 {
+    left: 20px;
+    position: relative;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    height: 80vh;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.projects-container div {
+    position: relative;
+    width: 20%;
+    min-width: 200px;
+    height: 20%;
+    overflow: hidden;
+    margin: 10px;
+    background: linear-gradient(135deg, white 0%, white 5%, #ebb2e6 5%, #ebb2e6 95%, white 95%, white 100%);
+    border-radius: 10px;
+    padding: 20px;
+    font-family: sans-serif;
+    font-size: 14px;
+    float: inline;
+}
+
+
+
+
+.projects-container img {
+    width: 20%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px;
+    float: left;
+    visibility: hidden;
+    position: absolute;
+}
+
+@keyframes readmore {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#readmore{
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: inherit;
+}
+
+.projects-container div:hover #readmore{
+    display: flex;
+    animation: readmore 2s ease-out 0s forwards;
+}
+
+.projects-container button {
+    border: none;
+    background: none;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.projects-container button:hover {
+        background: white;
+        color: #86aae3;
+}
+
+#uebermich {
+    width: auto;
+    height: 100vh;
+    padding-top: 50px;
+    position: relative;
+}
+
+#links {
+    width: auto;
+    height: 100vh;
+    padding-top: 50px;
+    position: relative;
+}
