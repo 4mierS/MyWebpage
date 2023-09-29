@@ -9,13 +9,16 @@ overlay.style.height = "100%";
 overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
 overlay.style.zIndex = "8";
 
+document.addEventListener('click', function(e) {
+  if (e.target && e.target.id.startsWith("btn-")) {
+    opened(e);
+  }
+});
 
-function opened() {
+
+function opened(e) {
   console.log("opened() was called");
 
-  document.addEventListener('click', (e) => {
-    // Check if it is a button
-    if (e.target && e.target.id.startsWith("btn-")) {
       var popup = document.getElementById(e.target.parentNode.parentNode.id);
       var popupBtn = document.getElementById(e.target.id);
       var popupStr = e.target.parentNode.parentNode.id;
@@ -53,6 +56,7 @@ var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewh
       window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
       window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
       window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+      console.log("scrolling disabled");
 
       popup.style.display = "block";
       popup.style.position = "absolute";
@@ -71,17 +75,18 @@ var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewh
       popup.onclick = function () {
         popup.style = {};
         popupBtn.style.display = "block";
+        console.log("popup.onclick was called");
+
 
       //Call this to Enable Scrolling 
         window.removeEventListener('DOMMouseScroll', preventDefault, false);
         window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
         window.removeEventListener('touchmove', preventDefault, wheelOpt);
         window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-        
+        console.log("scrolling enabled");
+
         if (document.body.contains(overlay)) {
           document.body.removeChild(overlay);
         }
       }
-    }
-  });
 }
